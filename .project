@@ -6,15 +6,20 @@
 	</projects>
 	<buildSpec>
 		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
 			<name>de.ovgu.featureide.core.extensibleFeatureProjectBuilder</name>
 			<arguments>
 				<dictionary>
 					<key>build</key>
-					<value>src</value>
+					<value>src/main/java</value>
 				</dictionary>
 				<dictionary>
 					<key>composer</key>
-					<value>de.ovgu.featureide.core.FeatureModeling</value>
+					<value>de.ovgu.featureide.core.composer.runtime</value>
 				</dictionary>
 				<dictionary>
 					<key>equations</key>
@@ -29,5 +34,6 @@
 	</buildSpec>
 	<natures>
 		<nature>de.ovgu.featureide.core.featureProjectNature</nature>
+		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
 </projectDescription>
