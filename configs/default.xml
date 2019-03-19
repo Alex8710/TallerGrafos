@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+	<feature automatic="selected" name="Grafo" />
+	<feature automatic="selected" name="Elementos" />
+	<feature automatic="selected" name="Nodo" />
+	<feature automatic="selected" name="Arco" />
+</configuration>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties />
+	<struct>
+		<and abstract="true" mandatory="true" name="Grafo">
+			<and mandatory="true" name="Elementos">
+				<feature mandatory="true" name="Nodo" />
+				<feature mandatory="true" name="Arco" />
+			</and>
+			<alt name="Tipo">
+				<feature name="Dirigido" />
+				<feature name="No dirigido" />
+			</alt>
+			<alt name="Peso">
+				<feature name="Con peso" />
+				<feature name="Sin peso" />
+			</alt>
+			<alt name="Busqueda">
+				<feature name="DFS" />
+				<feature name="BFS" />
+			</alt>
+		</and>
+	</struct>
+	<constraints />
+	<calculations Auto="true" Constraints="true"
+		Features="true" Redundant="true" Tautology="true" />
+	<comments />
+	<featureOrder userDefined="false" />
+</featureModel>
