@@ -1,50 +1,12 @@
-package ejemplo.grafoDirigidoConPeso;
+package fabrica.grafo;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class Grafo {
+public class BusquedaDFS implements Busqueda {
 
-	List<Nodo> nodos = new ArrayList<>();
-	List<Arco> arcos = new ArrayList<>();
-	
-	public Grafo() { }
-	
-	public void addNodo(String nombre)
-	{
-		Nodo nodo = new Nodo();
-		nodo.setNombre(nombre);
-		nodos.add(nodo);
-	}
-	
-	public void addArco(String origen, String destino, int peso) throws Exception {
-		
-		Nodo nodoOrigen = buscarNodo(origen);
-		Nodo nodoDestino = buscarNodo(destino);
-		
-		// Origen o destino no encontrado
-		if (nodoOrigen == null) {
-			throw new RuntimeException("Error en la Búsqueda: NodoOrigen no encontrado");
-		}
-		if (nodoDestino == null) {
-			throw new RuntimeException("Error en la Búsqueda: NodoOrigen no encontrado");
-		}
-		
-		addArco(nodoOrigen, nodoDestino, peso);
-	}
-	
-	public void addArco(Nodo nodoOrigen, Nodo nodoDestino, int peso)
-	{
-		Arco arco = new Arco();
-		arco.setOrigen(nodoOrigen);
-		arco.setDestino(nodoDestino);
-		arco.setPeso(peso);
-		arcos.add(arco);
-		nodoOrigen.agregarArco(arco);
-	}
-	
-	public Nodo buscarNodo(String nombre) 
+	public Nodo buscarNodo(List<Nodo> nodos, String nombre) 
 	{
 		for (Nodo nodo: nodos) {
 			if (nodo.getNombre().equals(nombre)) {
@@ -54,17 +16,17 @@ public class Grafo {
 		return null;
 	}
 	
-	public boolean existeRuta(String origen, String destino) throws Exception {
-		if (buscarRuta(origen, destino) != null) {
+	public boolean existeRuta(List<Nodo> nodos, String origen, String destino) throws Exception {
+		if (buscarRuta(nodos, origen, destino) != null) {
 			return true;
 		}
 		return false;
 	}
 	
-	public List<Nodo> buscarRuta(String origen, String destino) throws Exception {
+	public List<Nodo> buscarRuta(List<Nodo> nodos, String origen, String destino) throws Exception {
 		
-		Nodo nodoOrigen = buscarNodo(origen);
-		Nodo nodoDestino = buscarNodo(destino);
+		Nodo nodoOrigen = buscarNodo(nodos, origen);
+		Nodo nodoDestino = buscarNodo(nodos, destino);
 		List<Nodo> nodosRuta = new ArrayList<>();
 		
 		// Origen o destino no encontrado
@@ -72,17 +34,17 @@ public class Grafo {
 			throw new RuntimeException("Error en la Búsqueda: NodoOrigen no encontrado");
 		}
 		if (nodoDestino == null) {
-			throw new RuntimeException("Error en la Búsqueda: NodoOrigen no encontrado");
+			throw new RuntimeException("Error en la Búsqueda: NodoDestino no encontrado");
 		}
 		
-		if (buscarRutaDFS(nodosRuta, nodoOrigen, nodoDestino)) {
+		if (buscarRuta(nodosRuta, nodoOrigen, nodoDestino)) {
 			return nodosRuta;
 		} else {
 			return null;
 		}
 	}
 	
-	private boolean buscarRutaDFS(List<Nodo> nodosRuta, Nodo nodoOrigen, Nodo nodoDestino) {
+	public boolean buscarRuta(List<Nodo> nodosRuta, Nodo nodoOrigen, Nodo nodoDestino) {
 		
 		// agrega el origen
 	    nodosRuta.add(nodoOrigen);
@@ -121,7 +83,5 @@ public class Grafo {
             }
         }
         return false;
-        
-	}	
-	
+	}
 }
