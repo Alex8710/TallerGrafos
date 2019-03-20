@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <configuration>
-	<feature automatic="selected" name="Grafo" />
-	<feature automatic="selected" name="Elementos" />
-	<feature automatic="selected" name="Nodo" />
-	<feature automatic="selected" name="Arco" />
+    <feature automatic="selected" name="Grafo"/>
+    <feature automatic="selected" name="Elementos"/>
+    <feature automatic="selected" name="Nodo"/>
+    <feature automatic="selected" name="Arco"/>
+    <feature automatic="selected" name="Peso"/>
+    <feature manual="selected" name="Con_peso"/>
+    <feature automatic="unselected" name="Sin_peso"/>
+    <feature automatic="selected" name="Busqueda"/>
+    <feature manual="selected" name="DFS"/>
+    <feature automatic="unselected" name="BFS"/>
 </configuration>

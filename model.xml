@@ -16,7 +16,7 @@
                     </alt>
                 </and>
             </and>
-            <alt name="Busqueda">
+            <alt mandatory="true" name="Busqueda">
                 <feature name="DFS"/>
                 <feature name="BFS"/>
             </alt>
